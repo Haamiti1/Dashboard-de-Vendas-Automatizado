@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-from sqlalchemy import create_engine, text
+from sqlalchemy import create_engine
 from datetime import datetime, timedelta
 
 app = Flask(__name__)
@@ -36,14 +36,6 @@ def dashboard():
         "total_pedidos": result.total_pedidos or 0,
         "total_clientes": result.total_clientes or 0
     })
-    result = conn.execute(text(f"""
-        SELECT 
-            SUM(valor_total) as total_vendas,
-            COUNT(DISTINCT pedido_id) as total_pedidos,
-            COUNT(DISTINCT cliente_id) as total_clientes
-        FROM vendas
-        WHERE data >= '{data_inicio}'
-    """))
 
 if __name__ == "__main__":
     app.run(debug=True)
