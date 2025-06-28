@@ -8,9 +8,9 @@ Gera dashboards a partir de dados de vendas e envia relatórios semanais automat
 - Envia relatórios semanais por e-mail
 
 ## Tecnologias
-- Python, Flask, Pandas, Chart.js
+- Python, Flask, Pandas
 
 ## Execução
 ```bash
 pip install -r requirements.txt
-python app.py
+python main.py
